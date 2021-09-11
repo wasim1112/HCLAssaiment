@@ -1,0 +1,323 @@
+/* start: blocking loading state */
+@keyframes bounce {
+    0%{
+        transform: scale(0.0);
+    }
+    50% {
+        transform: scale(1.0);
+    }
+    100% {
+        transform: scale(0.0);
+    }
+}
+.dimScreen{
+    display: none;
+    z-index: 9999999;
+    position: fixed;
+    padding: 0;
+    margin: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:#ffffff80;
+}
+.spinner {
+    width: 60px;
+    height: 60px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+}
+.doubleBounce1, .doubleBounce2 {
+    animation: bounce 2.0s infinite ease-in-out;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #D8B544;
+    opacity: 0.6;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.doubleBounce2 {
+    animation-delay: -1.0s;
+}
+/* end: blocking loading state */
+
+/* start: modal css is not included in the css from UX team, so I just copied it from Bootstrap css*/
+.modal-open {
+    overflow: hidden;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1050;
+    display: none;
+    overflow: hidden;
+    outline: 0;
+    }
+
+.modal-open .modal {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.modal-dialog {
+    position: relative;
+    width: auto;
+    margin: 0.5rem;
+    pointer-events: none;
+}
+
+.modal.fade .modal-dialog {
+    transition: -webkit-transform 0.3s ease-out;
+    transition: transform 0.3s ease-out;
+    transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
+    -webkit-transform: translate(0, -25%);
+    transform: translate(0, -25%);
+}
+
+.modal.show .modal-dialog {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+}
+
+.modal-dialog-centered {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    min-height: calc(100% - (0.5rem * 2));
+}
+
+.modal-content {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 0.3rem;
+    outline: 0;
+}
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1040;
+    background-color: #000;
+}
+
+.modal-backdrop.fade {
+    opacity: 0;
+}
+
+.modal-backdrop.show {
+    opacity: 0.5;
+}
+
+.modal-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 1rem;
+    border-bottom: 1px solid #e9ecef;
+    border-top-left-radius: 0.3rem;
+    border-top-right-radius: 0.3rem;
+}
+
+.modal-header .close {
+    padding: 1rem;
+    margin: -1rem -1rem -1rem auto;
+}
+
+.modal-title {
+    margin-bottom: 0;
+    line-height: 1.5;
+}
+
+.modal-body {
+    position: relative;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1rem;
+}
+
+.modal-footer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    padding: 1rem;
+    border-top: 1px solid #e9ecef;
+}
+
+.modal-footer > :not(:first-child) {
+    margin-left: .25rem;
+}
+
+.modal-footer > :not(:last-child) {
+    margin-right: .25rem;
+}
+
+.modal-scrollbar-measure {
+    position: absolute;
+    top: -9999px;
+    width: 50px;
+    height: 50px;
+    overflow: scroll;
+}
+
+@media (min-width: 576px) {
+    .modal-dialog {
+        max-width: 500px;
+        margin: 1.75rem auto;
+    }
+    .modal-dialog-centered {
+        min-height: calc(100% - (1.75rem * 2));
+    }
+    .modal-sm {
+        max-width: 300px;
+    }
+}
+
+@media (min-width: 992px) {
+    .modal-lg {
+        max-width: 800px;
+    }
+}
+
+.hcl__header {
+    background-color: #5344d8;
+    background-image: url('/images/login-bg.png');
+    border-color: #446bd8;
+    color: #fff;
+}
+
+.login__wrapper {
+    height: 100%;
+    background-image: url('/images/login-bg.png');
+    background-size: cover;
+}
+.navbar {
+    background-color: #5344d8;
+    background-image: url('/images/login-bg2.png');
+    border-color: #446bd8;
+    box-shadow: -1px 1rem 1.5rem 0px rgb(0 0 0 / 20%);
+}
+
+.navbar-nav {
+    background-color: #2b2b30;
+    border-color: #141f3b;
+}
+
+.nav-item > .nav-link {
+    color: rgb(214, 214, 214);
+}
+.nav-item > .nav-link.active {
+    color: #ffffff !important;
+}
+
+.nav-link:hover {
+    background-color: #5344d8;
+    border-color: #446bd8;
+}
+
+.btn {
+    margin: 5px;
+    border-radius: 10rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+.btn-primary {
+    background-color: #5344d8;
+    border-color: #446bd8;
+}
+
+.btn-primary:hover {
+    background-color: #5344d8;
+    border-color: #446bd8;
+}
+
+.btn-primary:focus,
+.btn-primary.focus {
+    background-color: #5344d8;
+    border-color: #446bd8;
+    box-shadow: 0 0 0 .2rem #a17f0d
+}
+
+.btn-primary.disabled,
+.btn-primary:disabled {
+    background-color: #5344d8;
+    border-color: #446bd8;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active,
+.btn-primary:not(:disabled):not(.disabled).active,
+.show>.btn-primary.dropdown-toggle {
+    background-color: #5344d8;
+    border-color: #446bd8;
+}
+
+html, body, #root{
+    height: 100%;
+}
+
+.main-padding-bottom {
+    padding-bottom: 3rem;
+}
+
+.login__wrapper {
+    height: 100%;
+    background-size: cover;
+}
+
+.login-box{
+    border-radius: 3rem;
+}
+
+
+.pagination > .activePage > a {
+    background-color: #5344d8;
+    border-color: #446bd8;
+}
+
+.pagination > .activePage > a:hover {
+    background-color: #5344d8;
+    border-color: #446bd8;
+}
+
+
+.grouped-multi-checkbox-group-header {
+    background-color: #afa583 !important;
+}

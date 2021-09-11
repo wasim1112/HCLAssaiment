@@ -1,0 +1,20 @@
+.espanel{
+    min-height: initial !important;
+}
+
+.espanel-actions{
+    display: block;
+}
+
+html[dir='rtl'] .espanel-actions button{
+    float: left;
+}
+html[dir='rtl'] .espanel-actions button:first-child{
+    float: right;
+}
+html[dir='ltr'] .espanel-actions button{
+    float: right;
+}
+html[dir='ltr'] .espanel-actions button:first-child{
+    float: left;
+}
