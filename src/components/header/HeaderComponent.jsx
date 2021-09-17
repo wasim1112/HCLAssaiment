@@ -36,7 +36,6 @@ const HeaderComponent = ({user, signOut, history, location}) => {
       <Navbar variant='dark'>
         <div className="container">
           <Nav activeKey={location.pathname}>
-          {<Nav.Item><Nav.Link as={Link} to='/' href='/'><FormattedMessage id='home' /></Nav.Link></Nav.Item>}
             {<Nav.Item><Nav.Link as={Link} to='/booksManagement' href='/booksManagement'><FormattedMessage id='booksManagement' /></Nav.Link></Nav.Item>}
             
           </Nav>

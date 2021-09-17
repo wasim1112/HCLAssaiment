@@ -44,6 +44,7 @@ const ViewBookComponent = ({location, history}) => {
         <Row>
         <EsStaticDataElement labelId='Date issue' value={book.date} />
           <EsStaticDataElement labelId='Image Book' value={book.image} />
+          <div   style={{margin: '12px'}}><div class="square"><img src={book.image} /></div></div>
         </Row>
         <Row>
         <EsStaticDataElement labelId='Number Of Page' value={book.numberOfPAge} />

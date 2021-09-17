@@ -11,14 +11,12 @@ import setLoadingState from '../../utils/setLoadingState';
 import Footer from '../Footer/Footer';
 import EsForm, { EsFormElement } from '../shared/esform/EsForm';
 
-const LoginComponent = ({user, signOut, signIn, history}) => {
+const LoginComponent = ({signOut, signIn, history}) => {
   const [loginError, setLoginError] = useState(false);
   const [loginErrorEnter, setLoginErrorEnter] = useState(false);
   
 
-  if(user){
-    history.push('/');
-  }
+ 
   const onLogin = form => {
     if( !form.username || !form.password )
     {
@@ -27,19 +25,18 @@ const LoginComponent = ({user, signOut, signIn, history}) => {
     }
    var password =form.password;
    var username=form.username
-    const requestOptions = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({username , password })
-    };
-
-    fetch(`https://613b3c71110e000017a45522.mockapi.io/api/v1/singin`, requestOptions)
-    .then(handleResponse).then(res => {
-      signIn(res);
-      history.push('/booksManagement');
-    })
-    .catch(err => setLoginError(true))
-    .finally(() => setLoadingState(false));
+     axios.get('https://613b3c71110e000017a45522.mockapi.io/api/v1/singin?username='+username+'&password='+password)
+     .then(res => {
+        console.log('res,',res)
+        if(res && res.data.length == 0 )
+        {
+          setLoginError(true)
+        }
+        signIn(res.data[0]);
+        history.push('/booksManagement');
+      })
+      .catch(err => setLoginError(true))
+      .finally(() => setLoadingState(false));
      
 }
  
@@ -49,7 +46,6 @@ const LoginComponent = ({user, signOut, signIn, history}) => {
         const data = text && JSON.parse(text);
         if (!response.ok) {
             if (response.status === 401) {
-                // auto logout if 401 response returned from api
                 logout();
                 useLocation.reload(true);
             }
